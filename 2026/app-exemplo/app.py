@@ -9,7 +9,7 @@ def listar_usuarios():
 @app.route('/usuarios/cadastrar', methods=['GET', 'POST'])
 def cadastrar_usuario():
     return render_template('cadastrar_usuario.html')
-
+ 
 @app.route('/usuarios/editar/<int:id>', methods=['GET', 'POST'])
 def editar_usuario(id):
     return render_template('editar_usuario.html', id=id)
