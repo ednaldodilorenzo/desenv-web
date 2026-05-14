@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" />
+</head>
+
+<body>
+    <div class="main">
+        <header>
+
+        </header>
+        <div class="page">
+            <div class="sidebar">
+                <h2>Menu</h2>
+                <nav>
+                    <ul>
+                        <li>Home</li>
+                        <li>Alunos</li>
+                        <li>Professores</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="content">
+                <div class="screen">
+                    <h1>Cadastro</h1>
+                    <form method="post" action="/" class="vertical-form">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input id="nome" name="nome" />
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input id="senha" name="senha" type="password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input id="cpf" name="cpf" type="number" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo">Sexo</label>
+                            <input id="sexo" name="sexo" value="M" type="radio" />
+                            <input id="sexo" name="sexo" value="F" type="radio" />
+                        </div>
+                        <div class="form-group">
+                            <label for="aceite">Aceito os Termos de Uso</label>
+                            <input id="aceite" name="aceite" type="checkbox" />
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <select id="cidade" name="cidade">
+                                <option value="JP">João Pessoa</option>
+                                <option value="SR">Santa Rita</option>
+                            </select>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

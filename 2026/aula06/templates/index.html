@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula CSS e Tabelas</title>
+    <style>
+        h1 {
+            color: red;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 13px;
+            color: darkgray;
+        }
+
+        #teste {
+          border: 1px solid black;  
+        }
+
+        .titulo-novo {
+            color: blue;
+            font-size: 20px;
+        } 
+
+        table {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        thead th {
+            background-color: #1a5c38;
+            color: #ffffff;
+        }
+
+        tbody tr:nth-child {
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aula CSS</h1>
+    <p>Essa é a aula de css</p>
+
+    <h1 class="titulo-novo">Aula Tabelas</h1>
+    <p class="titulo-novo">Essa é a aula de tabelas</p>
+
+    <div id="teste">
+        Isso é um teste para seletores.
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>João da Silva</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Benedita Roberta</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Astrogildo Figueiredo</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

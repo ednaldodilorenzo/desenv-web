@@ -1,0 +1,87 @@
+body {
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: blue;    
+}
+
+.menu {
+    padding: 10px;
+    background-color: white;
+}
+
+.container {
+    border: 2px solid black;
+    display: flex;
+    height: 300px;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    background: steelblue;
+    color: white;
+}
+
+#google-link {
+    color: red;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+header {
+    height: 30px;
+    background-color: blue;
+    width: 100vw;    
+}
+
+.middle {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+nav {
+    background-color: white;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+nav li {
+    margin-bottom: 5px;
+}
+
+.content {
+    flex: 1;    
+    padding: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+}
+
+.copyright {
+    border: 1px solid black;
+    font-size: 12px;
+    color: gray;
+}
+
