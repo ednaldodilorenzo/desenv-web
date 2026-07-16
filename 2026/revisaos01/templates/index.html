@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão</title>
+    <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+    <h1>Bem vindo de volta das Férias</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{aluno["id"]}}</td>
+                <td>{{aluno["nome"]}}</td>
+                <td>{{aluno["idade"]}}</td>
+                {% if aluno["idade"] >= 18 %}
+                <td>Maior</td>
+                {% else %}
+                <td>Menor</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

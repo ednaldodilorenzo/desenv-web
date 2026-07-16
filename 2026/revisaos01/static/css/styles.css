@@ -1,0 +1,19 @@
+body {
+    background-color: #d3e6eb;
+}
+
+h1 {
+    color: pink;
+}
+
+table {
+    width: 100%;
+}
+
+tr th {
+    border: solid 1px black;
+}
+
+tr td {
+    border: solid 1px black;
+}
