@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
 app.secret_key = "chave_secreta_para_flash_messages"
@@ -55,7 +55,7 @@ def index():
         "ano": 2026,
         "serie": "3ª Série",
     }
-    return render_template("index.html", detalhe="Detalhe dos Alunos", exibeDetalhe=False, turma=valor, chamados=chamados)
+    return render_template("index.html",usuario_logado=current_user.nome, detalhe="Detalhe dos Alunos", exibeDetalhe=False, turma=valor, chamados=chamados)
    
 
 
