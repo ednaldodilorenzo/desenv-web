@@ -1,7 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 
 app = Flask(__name__)
 app.secret_key = "chave_secreta_para_flash_messages"
+
+login_manager = LoginManager(app)
+login_manager.login_view = "login"
+
+class Usuario(UserMixin):
+    def __init__(self, id, nome):
+        self.id = id
+        self.nome = nome
 
 chamados = [
     {"id": 1, "descricao": "Computador não liga"},
@@ -12,6 +21,10 @@ chamados = [
 ]
 proximo_id = 0
 
+@login_manager.user_loader
+def load_user(user_id: int) -> Usuario:
+    return Usuario(1, "Aluno")
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if (request.method == "GET"):
@@ -21,7 +34,8 @@ def login():
     senha = request.form["senha"]
 
     if usuario == "aluno" and senha == "123456":
-        session["usuario_logado"] = True
+        usuario_login = Usuario(1, "Aluno")
+        login_user(usuario_login)
         return redirect(url_for("index"))
     
     flash("Usuário ou senha inválida!")
@@ -30,16 +44,12 @@ def login():
 
 @app.route("/logout")
 def logout():
-    del session["usuario_logado"]
+    logout_user()
     return redirect(url_for("login"))
 
 @app.route("/", methods=["GET", "POST"])
+@login_required
 def index():
-    
-    if not session.get("usuario_logado"):
-        flash("É necessário fazer login para acessar essa tela!")
-        return redirect(url_for("login"))
-
     valor = {
         "descricao": "Informática",
         "ano": 2026,
@@ -50,11 +60,8 @@ def index():
 
 
 @app.route("/cadastro", methods=["GET", "POST"])
-def cadastro():    
-    if not session.get("usuario_logado"):
-        flash("É necessário fazer login para acessar essa tela!")
-        return redirect(url_for("login"))
-
+@login_required
+def cadastro():
     if (request.method == "GET"):
         return render_template("cadastro.html")
     else:
