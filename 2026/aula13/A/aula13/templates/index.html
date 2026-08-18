@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Listagem de Dados</h1>
+{% if exibeDetalhe %}
+<p>{{ detalhe }}</p>
+{% else %}
+<p>Não exibe detalhes</p>
+{% endif %}
+Turma: {{ turma["descricao"]}}
+Ano: {{ turma["ano"]}}
+Série: {{ turma["serie"]}}
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for chamado in chamados %}
+        <tr>
+            <td>{{ chamado["id"] }}</td>
+            <td>{{ chamado["descricao"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/cadastro">Link para a tela de cadastro</a>
+{% endblock %}
