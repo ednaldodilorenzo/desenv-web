@@ -19,6 +19,7 @@ chamados = [
     {"id": 4, "descricao": "Tela azul no Windows"},
     {"id": 5, "descricao": "Problema com o mouse"},
 ]
+
 proximo_id = 0
 
 @login_manager.user_loader
