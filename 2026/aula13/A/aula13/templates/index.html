@@ -25,5 +25,5 @@ Série: {{ turma["serie"]}}
         {% endfor %}
     </tbody>
 </table>
-<a href="/cadastro">Link para a tela de cadastro</a>
+<a href="{{url_for('chamado.cadastro')}}">Link para a tela de cadastro</a>
 {% endblock %}
