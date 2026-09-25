@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from banco import chamados, proximo_id 
+from modulos.chamado.chamador_form import ChamadoForm
 
 chamado_bp = Blueprint("chamado", __file__)
 
@@ -17,15 +18,17 @@ def index():
 @chamado_bp.route("/cadastro", methods=["GET", "POST"])
 @login_required
 def cadastro():
-    if (request.method == "GET"):
-        return render_template("cadastro.html")
-    else:
-        print(request.form["nome"])
-        print(request.form["cidade"])
+    formulario = ChamadoForm()
+    global proximo_id
+
+    if formulario.validate_on_submit():
         chamados.append({
-            "ID": proximo_id,
-            "nome": request.form["nome"],
-            "cidade": request.form["cidade"]
+            "id": proximo_id,
+            "nome": formulario.nome.data,
+            "descricao": formulario.titulo.data
         })
+        
         proximo_id += 1
-        return redirect(url_for("index"))
+        return redirect(url_for("chamado.index"))
+
+    return render_template("chamado-add.html", form=formulario)
