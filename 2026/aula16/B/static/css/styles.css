@@ -1,0 +1,99 @@
+@import url('https://googleapis.com');
+
+body {
+    margin: 0;
+    background-color: lightgray;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+}
+
+header {
+    height: 100px;
+    background-color: blue;
+}
+
+.sidebar {
+    width: 150px;
+    height: 100vh;
+    background-color: white;
+    padding: 10px 15px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar nav li {
+    margin-bottom: 10px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.screen {
+    width: 720px;
+    padding: 20px;
+    background: floralwhite;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.screen h1 {
+    text-align: center;
+}
+
+/* Empilha as divs verticalmente */
+.vertical-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;             /* Espaço entre cada linha do formulário */
+  max-width: 400px;      /* Largura máxima opcional para o formulário */
+}
+
+/* Alinha label e input em duas colunas perfeitas */
+.form-group {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* Largura fixa para labels, o resto para o input */
+  align-items: center;              /* Alinha o texto do label verticalmente ao centro */
+  gap: 10px;                        /* Espaço entre o label e o input */
+}
+
+/* Estilização básica dos campos */
+.form-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;                      /* Garante que o input ocupe todo o espaço da sua coluna */
+  box-sizing: border-box;
+}
+
+.form-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;                      /* Garante que o input ocupe todo o espaço da sua coluna */
+  box-sizing: border-box;
+}
+
+/* Alinha o botão com o início dos inputs */
+.vertical-form button {
+  margin-left: 130px;               /* Mesma largura do label (120px) + gap (10px) */
+  padding: 10px;
+  cursor: pointer;
+}

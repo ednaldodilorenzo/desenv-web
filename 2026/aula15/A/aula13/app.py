@@ -10,7 +10,7 @@ app.register_blueprint(chamado_bp, url_prefix="/chamados")
 app.register_blueprint(auth_bp, url_prefix="/auth")
 
 login_manager = LoginManager(app)
-login_manager.login_view = "login"
+login_manager.login_view = "auth.login"
 
 @login_manager.user_loader
 def load_user(user_id: int) -> Usuario:

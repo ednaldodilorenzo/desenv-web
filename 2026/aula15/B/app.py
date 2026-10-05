@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
-from modulos.chamado import chamado_bp
+from modulos.chamado.chamado import chamado_bp
 from modulos.auth import auth_bp
 from banco import Usuario
 
