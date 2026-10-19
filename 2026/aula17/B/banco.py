@@ -1,5 +1,6 @@
 from flask_login import UserMixin
 import mysql
+import mysql.connector
 
 chamados = [
     {"id": 1, "descricao": "Computador não liga"},
@@ -10,7 +11,7 @@ chamados = [
 ]
 
 DATABASE_CONFIG = {
-    "host": "localhost",
+    "host": "10.13.133.55",
     "user": "root",
     "password": "123456",
     "database":"chamados"

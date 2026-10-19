@@ -8,8 +8,13 @@
         <div class="alert alert-{{ category }}">{{ message }}</div>
     {% endfor %}
 {% endwith %}
+{% if (id) %}
+<form method="post" action="{{ url_for('chamado.editar', id=id) }}" class="vertical-form">
+{% else %}
 <form method="post" action="{{ url_for('chamado.cadastro') }}" class="vertical-form">
+{% endif %} 
     {{ form.hidden_tag() }}
+    <input type="hidden" name="id" value="{{ id }}">
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" />

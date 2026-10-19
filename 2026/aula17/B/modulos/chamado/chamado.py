@@ -33,7 +33,8 @@ def cadastro():
     formulario = ChamadoForm()
     if formulario.validate_on_submit():
         db = get_db()
-        db.execute(...)
+        db.cursor().execute(...)
+        db.commit()
         return redirect(url_for("chamado.index"))
     else:
         return render_template("cadastro_chamado.html", form=formulario)

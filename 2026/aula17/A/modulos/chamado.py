@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Length
+from database import get_db
 
 chamado_bp = Blueprint("chamado", __file__)
 
@@ -36,17 +37,28 @@ def listagem():
 @chamado_bp.route("/cadastro", methods=["GET", "POST"])
 @login_required
 def cadastro():
-    global proximo_id
+    conexao = get_db()
     formulario = ChamadoForm()
     if formulario.validate_on_submit():
-        chamados.append({
-                     "ID": proximo_id + 1,
-                     "nome": formulario.nome.data,
-                     "titulo": formulario.titulo.data
-                 })
-        proximo_id += 1
+        conexao.cursor().execute(
+            "INSERT INTO chamados (descricao) VALUES (%s)",
+            (formulario.titulo.data,)
+        )
+        conexao.commit()
         return redirect(url_for("chamado.listagem"))
     
     return render_template("cadastro_chamado.html", form=formulario)
-    
-    
+
+@chamado_bp.route("/cadastro/<int:id>", methods=["GET", "POST"])
+@login_required
+def editar(id):
+    conexao = get_db()
+    formulario = ChamadoForm()
+    if formulario.validate_on_submit():
+        conexao.cursor().execute(
+            "UPDATE chamados SET descricao = %s WHERE id = %s",
+            (formulario.titulo.data, id)
+        )
+        conexao.commit()
+        return redirect(url_for("chamado.listagem"))
+    return render_template("cadastro_chamado.html", form=formulario, id=id)
